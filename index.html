@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./assets/reset.css">
+    <style>
+
+
+        #container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+
+            max-width: 1200px;
+            padding: 30px;
+
+            background-color: #FE8C00;
+        }
+
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-basis: 250px;
+            height: 300px;
+            background-color: white;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        .card + .card{
+            margin-left: 30px;
+        }
+
+        .userImageContainer {
+            position: relative;
+            overflow: hidden;
+            height: 90px;
+            width: 90px;
+            border-radius: 50%;
+
+            margin: 20px 0;
+        }
+
+        .imageInContainer {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            height: inherit;
+            width: inherit;
+            object-fit: cover;
+            transform: translate(-50%, -50%);
+        }
+
+        .userName{
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom:20px;
+        }
+
+        .description{
+            margin-bottom: 20px;
+            text-align: center;
+
+
+            line-height: 20px;
+            max-height: 40px;
+
+            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: hidden;
+        }
+
+        .links{
+            display: flex;
+            justify-content:center;
+            margin-top: auto;
+        }
+
+        .linkItem{
+            position: relative;
+            overflow: hidden;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+        }
+
+        .linkItem + .linkItem{
+            margin-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <div class="card">
+        <div class="userImageContainer">
+            <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+        </div>
+
+        <div class="userName">
+            <p>Mathew Alex</p>
+        </div>
+
+        <div class="description">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quaerat.</p>
+        </div>
+
+        <div class="links">
+            <div class="linkItem">
+                <a href="">
+                    <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+                </a>
+            </div>
+            <div class="linkItem">
+                <a href="">
+                    <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+                </a>
+            </div>
+            <div class="linkItem">
+                <a href="">
+                    <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+    'use strict';
+
+    const SOCIETY = Object.freeze(
+        {
+            FACEBOOK:"FACEBOOK",
+            TWITTER:"TWITTER",
+            SKYPE: "SKYPE",
+            GOOGLE: "GOOGLE",
+        }
+    );
+
+    const socIcon = new Map();
+
+    socIcon.set(SOCIETY.FACEBOOK, "./assets/img/icon/facebook.png");
+    socIcon.set(SOCIETY.TWITTER, "./assets/img/icon/twitter.png");
+    socIcon.set(SOCIETY.SKYPE, "./assets/img/icon/skype.png");
+    socIcon.set(SOCIETY.GOOGLE, "./assets/img/icon/google.png");
+
+    const users = [
+        {
+            id: 1,
+            name: "Vasy",
+            surname: "Terkin",
+            description: "",
+            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            links:[
+                    {
+                        type: SOCIETY.TWITTER,
+                        url: "#",
+                    },
+                ],
+        },
+        {
+            id: 1,
+            name: "Vasy",
+            surname: "Terkin",
+            description: "",
+            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            links:[
+                {
+                    type: SOCIETY.TWITTER,
+                    url: "#",
+                },
+                {
+                    type: SOCIETY.GOOGLE,
+                    url: "#",
+                },
+            ],
+        },
+        {
+            id: 1,
+            name: "Vasy",
+            surname: "Terkin",
+            description: "",
+            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            links:[
+                {
+                    type: SOCIETY.TWITTER,
+                    url: "#",
+                },
+            ],
+        },
+        {
+            id: 1,
+            name: "Vasy",
+            surname: "Terkin",
+            description: "",
+            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            links:[
+                {
+                    type: SOCIETY.TWITTER,
+                    url: "#",
+                },
+            ],
+        },
+    ];
+
+
+    const userCardItem = document.getElementById("container");
+
+    users.forEach( item => {
+        userCardItem.append(cardGenerate(item));
+    });
+
+    function cardGenerate(user) {
+
+
+
+            const card = document.createElement("div");  //!!!!!!!!!!
+        card.classList.add("card");
+
+        const userImageContainer = document.createElement("div");
+        userImageContainer.classList.add("userImageContainer");
+
+        const userFoto = document.createElement("img");
+        userFoto.classList.add("imageInContainer")
+        userFoto.setAttribute("src", user.imageSrc);
+        userFoto.setAttribute("alt", "user avatar");
+
+            userImageContainer.append(userFoto);
+
+
+        const userFullName = document.createElement("div");
+        userFullName.classList.add("userName");
+            userFullName.innerText = `${user.name} ${user.surname}`;
+
+
+        const description = document.createElement("div");
+        description.classList.add("description");
+            description.innerText = `${user.description}`;
+
+        const links = document.createElement("div");
+            links.classList.add("links");
+
+        user.links.forEach( function(item)  {
+
+            const linkItem = document.createElement("div");
+            linkItem.classList.add("linkItem");
+
+            const link = document.createElement("a");
+            link.setAttribute("href", `${item.url}`);
+
+            const img = document.createElement("img");
+            img.classList.add("imageInContainer");
+            img.setAttribute("src", socIcon.get(item.type));
+
+            link.append(img);
+
+            linkItem.append(link);
+
+            links.append(linkItem);
+
+        }
+        );
+
+        card.append(userFoto);
+        card.append(userFullName);
+        card.append(description);
+        card.append(links);
+
+        return card;
+    }
+
+
+</script>
+
+</body>
+</html>
