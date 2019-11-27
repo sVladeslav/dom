@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./assets/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+
     <style>
+
 
 
         #container{
@@ -16,23 +19,25 @@
             padding: 30px;
 
             background-color: #FE8C00;
+            margin: 0 auto;
         }
 
         .card{
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex-basis: 250px;
-            height: 300px;
+            width: 250px;
+            height: 400px;
             background-color: white;
             margin-bottom: 40px;
             border-radius: 10px;
             padding: 10px 20px;
             box-sizing: border-box;
+            margin-right: 30px;
         }
 
         .card + .card{
-            margin-left: 30px;
+            /*margin-left: 30px;*/
         }
 
         .userImageContainer {
@@ -65,9 +70,10 @@
             margin-bottom: 20px;
             text-align: center;
 
-
+            font-size: 16px;
+            font-family: 'Playfair Display', serif;
             line-height: 20px;
-            max-height: 40px;
+            max-height: 60px;
 
             text-overflow: ellipsis;
             white-space: normal;
@@ -88,6 +94,24 @@
             border-radius: 50%;
         }
 
+        .deleteButton{
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px 0;
+            text-align: center;
+            background-color: red;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 10px;
+            color:white;
+        }
+
+        .deleteButton:active{
+            -webkit-box-shadow: inset 0px 0px 5px 4px rgba(0,0,0,0.75);
+            -moz-box-shadow: inset 0px 0px 5px 4px rgba(0,0,0,0.75);
+            box-shadow: inset 0px 0px 5px 4px rgba(0,0,0,0.75);
+        }
+
         .linkItem + .linkItem{
             margin-left: 10px;
         }
@@ -97,38 +121,38 @@
 <body>
 
 <div id="container">
-    <div class="card">
-        <div class="userImageContainer">
-            <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
-        </div>
+    <!--  <div class="card">
+          <div class="userImageContainer">
+              <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+          </div>
 
-        <div class="userName">
-            <p>Mathew Alex</p>
-        </div>
+          <div class="userName">
+              <p>Mathew Alex</p>
+          </div>
 
-        <div class="description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quaerat.</p>
-        </div>
+          <div class="description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, quaerat.</p>
+          </div>
 
-        <div class="links">
-            <div class="linkItem">
-                <a href="">
-                    <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
-                </a>
-            </div>
-            <div class="linkItem">
-                <a href="">
-                    <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
-                </a>
-            </div>
-            <div class="linkItem">
-                <a href="">
-                    <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
-                </a>
-            </div>
-        </div>
+          <div class="links">
+              <div class="linkItem">
+                  <a href="">
+                      <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+                  </a>
+              </div>
+              <div class="linkItem">
+                  <a href="">
+                      <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+                  </a>
+              </div>
+              <div class="linkItem">
+                  <a href="">
+                      <img src="https://avatars1.githubusercontent.com/u/9919?s=200&v=4" alt="" class="imageInContainer">
+                  </a>
+              </div>
+          </div>
 
-    </div>
+      </div>-->
 
 </div>
 
@@ -136,79 +160,116 @@
 <script>
     'use strict';
 
-    const SOCIETY = Object.freeze(
+    const SOCIAL_NETWORKS = Object.freeze(
         {
             FACEBOOK:"FACEBOOK",
             TWITTER:"TWITTER",
             SKYPE: "SKYPE",
             GOOGLE: "GOOGLE",
+            INSTAGRAM: "INSTAGRAM",
         }
     );
 
-    const socIcon = new Map();
+    const socialIcon = new Map();
 
-    socIcon.set(SOCIETY.FACEBOOK, "./assets/img/icon/facebook.png");
-    socIcon.set(SOCIETY.TWITTER, "./assets/img/icon/twitter.png");
-    socIcon.set(SOCIETY.SKYPE, "./assets/img/icon/skype.png");
-    socIcon.set(SOCIETY.GOOGLE, "./assets/img/icon/google.png");
+    socialIcon.set(SOCIAL_NETWORKS.FACEBOOK, "./assets/img/icon/facebook.png");
+    socialIcon.set(SOCIAL_NETWORKS.TWITTER, "./assets/img/icon/twitter.png");
+    socialIcon.set(SOCIAL_NETWORKS.SKYPE, "./assets/img/icon/skype.png");
+    socialIcon.set(SOCIAL_NETWORKS.GOOGLE, "./assets/img/icon/google.png");
+    socialIcon.set(SOCIAL_NETWORKS.INSTAGRAM, "./assets/img/icon/instagram.png");
 
     const users = [
         {
             id: 1,
-            name: "Vasy",
-            surname: "Terkin",
-            description: "",
-            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
-            links:[
-                    {
-                        type: SOCIETY.TWITTER,
-                        url: "#",
-                    },
-                ],
-        },
-        {
-            id: 1,
-            name: "Vasy",
-            surname: "Terkin",
-            description: "",
-            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            name: "Илья",
+            surname: "Дебальчук",
+            description: "Ахаха я и не помню такого.\n" +
+                "У него какая то нездоровая тяга к ноутам)",
+            imageSrc: "https://instagram.fiev17-1.fna.fbcdn.net/v/t51.2885-15/e35/46629523_333824480787411_4698299901111585971_n.jpg?_nc_ht=instagram.fiev17-1.fna.fbcdn.net&_nc_cat=103&oh=53ea9adbb0164792b7034d95bbd92fd4&oe=5E8C46EA",
             links:[
                 {
-                    type: SOCIETY.TWITTER,
+                    type: SOCIAL_NETWORKS.TWITTER,
                     url: "#",
                 },
                 {
-                    type: SOCIETY.GOOGLE,
-                    url: "#",
+                    type: SOCIAL_NETWORKS.INSTAGRAM,
+                    url: "https://instagram.com/ilya_debalchuk?igshid=1m2b16kp4ju5c",
                 },
             ],
         },
         {
-            id: 1,
-            name: "Vasy",
-            surname: "Terkin",
-            description: "",
-            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            id: 2,
+            name: "Марина",
+            surname: "Терещенко",
+            description: "Верни то что взял !",
+            imageSrc: "https://instagram.fiev17-1.fna.fbcdn.net/v/t51.2885-15/e35/39956001_372144770276586_7070562533839579201_n.jpg?_nc_ht=instagram.fiev17-1.fna.fbcdn.net&_nc_cat=106&oh=4a471ac1c5e1cd7308d602ac4d6cfab4&oe=5E745FB6",
             links:[
                 {
-                    type: SOCIETY.TWITTER,
-                    url: "#",
+                    type: SOCIAL_NETWORKS.INSTAGRAM,
+                    url: "https://instagram.com/marinka.teresh?igshid=5f6y8sdu3xp2",
                 },
             ],
         },
         {
-            id: 1,
-            name: "Vasy",
-            surname: "Terkin",
-            description: "",
-            imageSrc: "https://avatars1.githubusercontent.com/u/9919?s=200&v=4",
+            id: 3,
+            name: "Михайло",
+            surname: "Простой",
+            description: "Я специально не смотрю то что просят. Я теряю интерес",
+            imageSrc: "https://instagram.fiev12-1.fna.fbcdn.net/v/t51.2885-15/e35/69269954_1096894570500035_708671667652865151_n.jpg?_nc_ht=instagram.fiev12-1.fna.fbcdn.net&_nc_cat=111&oh=681e03a80c158a64000f51da14cc4d89&oe=5E697606",
             links:[
                 {
-                    type: SOCIETY.TWITTER,
+                    type: SOCIAL_NETWORKS.INSTAGRAM,
+                    url: "https://instagram.com/mhmarskiy?igshid=1if93hv8l3hls",
+                },
+            ],
+        },
+        {
+            id: 4,
+            name: "Анна",
+            surname: "Кушнир",
+            description: "Ой, да и вообще, в каждого разные странности) так что все хорошо)))",
+            imageSrc: "https://instagram.fiev12-1.fna.fbcdn.net/v/t51.2885-15/sh0.08/e35/s640x640/75394882_2038521166250889_8560410665710575461_n.jpg?_nc_ht=instagram.fiev12-1.fna.fbcdn.net&_nc_cat=109&oh=88dbfd622328049569e3f8aad7e7c05f&oe=5E8B973D",
+            links:[
+                {
+                    type: SOCIAL_NETWORKS.TWITTER,
+                    url: "#",
+                },
+                {
+                    type: SOCIAL_NETWORKS.INSTAGRAM,
+                    url: "https://instagram.com/_anna_vikt_?igshid=xgzrr0fmrwyy",
+                },
+            ],
+        },
+        {
+            id:5,
+            name: "John",
+            surname: "Doe",
+            description: "Мне страшно умереть в тишине.",
+            imageSrc: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEhIVFRUVFxYVFRgXFhUYFxUVFRUXFhUVFRUYHSggGBolGxgVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDgwNFw8NGysaHCYuNSs3KysrKy0rKystNDgyMis3KzcrKysrMi44ODcrKzcrKysrKyssKystKysrNysrK//AABEIALgBEgMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAFAAIDBAYBBwj/xABBEAACAQIEAwYCBwYGAAcAAAABAgMAEQQSITEFQVEGEyJhcYEykRQjQlKhscEHYnKC0fBDkqKy4fEVFjNzg5PC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/xAAWEQEBAQAAAAAAAAAAAAAAAAAAARH/2gAMAwEAAhEDEQA/APEBSCk1PEgJClgoOlyDYeZtWj4twoNKzd6igmJNVb4zGuVbAcxZr8r0GaEPnU0EX2iCVBF7ba8ieVFJOBsunepnIZlSzAt3d84vtcENbrapOG4Qrn8S5ysZy2Phu6lc3XzAosmhs0QRiLg6KQVIIsyhrXHPWx8wRTSuY7VZOFuzEkXzNceecjQdN6sRwAURT4eyJIC6B11BB2156Ebb1K8BYAKTffoMvK1WMRhlNiotoL63uebeXpT8IhIA3N9NNTfS2m9Bbgwa9ypXN3i3Eg5b+FlO/r0ofLwxyC6oxUfEVUkL/EQNPevZuwX7MzpPjQVB+GDYkEf4pG38I16nlV/9oPa3D4aFsBhUQkqUkVbCONDoU8P2iNCBsCedqD5/eMroRY7n9KYoopxGF5JGkOW7G9gMoHQAcgBaqf0RtSdANydhyH/W9BLhJLGtlwTjGUAXrF4ZRyR3t55R+AJqxFvpdOmbUe5tpQejT8dutr1kOK4jMaHJiXBKtcEaEGnM16CAYdnOVFZmOwUEnpsPO1SiJcK5+lQd49mUwOWQi6jK7FdVIve2mw61ouDcb+gYZ2VQZ8XdUuT4IIyQZbC2pkuF692x5a4/ExSyysb8yxY9Sbkn3uaCzLj4JHXvIUiSyhu5WxAChc1rm7G1z1JPWqsvDA2sTq17kLqrZRrs2g05XqhIrNe2uu9t6fhA6kEXBGx5j06UFU00iruJgAsykkEa3BGVtbrfnpY38/KqxSghtTTUpWmkUDK5TyKaRQNpV21K1BylXaVBylXaVBylSroFBOuLcAAHbypVqMHw7hpjQvPIHKrmABsGsMwHg63pUGRLVoTxmF/jWS2aKUZcujxoEK6nVTa99D5UARQb3NunrXCPMUGpxnEowIp2V+8aOUootk+seQeI76XOw1qpBxBSwIVs7mJGvbKArLcjny50KaZnEatYhBlABAJBYsdTz1PKttJwnBNf6LpIDFJCzMxzIzJFZ1ZrXzyI1htZhqKLLgLG9y/k7j/UafloXhJWV2zbknN/EDr+N6IrMOlESqK9G/ZVFgIA+NxU0ayI2SJGIzLZVYyKm7E5soIGlj1086VhUqUHpna/9pskwMWDDRRnQyHSRh+6PsDz39K87IriVJagrTLRKPgDSmGMmyZFmkOvieUZkFvKIp/mbrVKYaVp+IlklJvYd1AAOQKwRoy6c1ZWB8xQdw/B8NG4IvbzozF2Yw0oJ1F99BofKsovG4E0ll8QItfNYa662N62nB+LYcoHWVQCdTuLDY0AHtT2VVMMHBu0DBc1rFoHawDdSkhUDyl8qyBwZOi78vM16l2n4rE+Em7qRZA/dpdeYaVWJ9LI3zrG8CxscEqySQLMFOYBiwsw+HY2IvY6g7UGZ7TYkHGOqghIAmGQE6hYFEZuR1cOf5qqYt/DcC163navBwYuKHEYbDpDbOjrGoA74NnbMQBclWUgnU69DWA4lOVJiIswa3S3rQQcOUX8QHlRCXEpayjXr71dj7OxSws8U7I8ZYMHysHy2uwVQDGCb2uW0XW1BoY2RyklvWgkw8ObPGBfvFsvXOpDrb1sV/noVWlGEuUdGsVdWBHIggg66aEUJx2AaOR0O6Mykc7qSP0oBxWmkVO0R6VEwoIyKYRUpphFAy1NtT7U5YiaCG1IirK4bqadkA2FBVWMnlUq4Y86sLXaCFYB61IFrtdoHZT/AGaVcvSoKsWFdstgfFfL55fi+VRlRWrjiTu4phfu48FMspve00qzxR6C9gWMagfukm1iaygoOx6Ha/z/AEopwziBiYOFBZNUveytcMCV+1YgG3Xe+1DFqZOdA+NtQSbm+pPPqTRZY6EirCsetATSI1ZjFCkmYc6sx4putAYitVyEKeV6BpiTzqzHiPKg0WEwCd4jH4VdWYb3CsCVt0IFql4rhnWQxO+Yh200sF0C5fIjW/PNegCSeZ+dFsJjZXURtI7qikopNwgAJNugAv5CxoIeL9ncEIWZpDnZkRRe5LuwGVb63sT5C1HsP2cwqYCaO7xxgq5c3zixaxYry5Ebb+tYNuHzviDKcrKh0DE2Fx8QFwNPWt7wTCumHdEEbtIjd5m7wxpHla5N2IvY6KOvIUBKXhYj4Y6xO0ofuStiX0Eoa4vcgaXtesg0RGhFvWtTwqWbBYCCJT9a2rXFyqDN4SPVl/yGqeN4tiHHjII/hH9KCrwbgeNxUckGFeKNJLGSR2N42i1QKigkM4dwG2sr8wKzGF7KZJmTEKyNExzAkE5tDdiNDuCLb3o7g+JTYeTvYWysNDzDD7rDmNB8r71d4wsk7vPHLFIzqsrKGUSkLGue0QGhWxJBsdCRcUFPjUcMcTzIpLGPuhYG4IRkUsBpazG5O/h6UzgGCw+JhtLGC9rE6gkjmCNRQrHcVyrpvb+/78q72e4i1787/hQbbhvZvDpoYgVbTUkkeYO4rKftE7PmCUTrcxS2BPSUDUHpmAv65q23DOJA2DU/tfiUOFMOh7wgC4BtlIYst+Y015XFB4qTUbLWo49wnMBJEt2As6jdh97zP5+1ZcmgiaIdKj7gVOa4TQRZLV2nU00HDTbUi1MaYUDxSqA4nyqMzsaC1emNKBzrsWCJtmax5jmB50dh7NRNE8haUBVuLKDc7C9/Ogz30kUql/8ADT94fKuUGgmGXhj2+0+Dj/0YudvxaM1llGlaLjEuXBRx9Z2J/wDhwuHQfi71nl2oOrUoqFauJhiYzJcWUgW560DRVhKgQaHy/WpYzpQTrUqVCpqWM0FlKsRVWQ1PG1BeiFFOFJq73sscbFj5MO7C+rM6r/NflVfgnB58Qfqkuuxc6IPVuZ8hc+VbheDwYTCSRyyBnxByM9rBCFLIBfULfW/mL25Bj5sXHHpKhZW6XHtcVp+E8awcUISJMryMFRLNmfkDl1NvOszLhmfUkqV+Kx2YdD06Hpas4eJJhsUjgGWRWDNmdiBqLLmGt7c787ctQ+iMFw6Bo0ScguFPiylbhmuRZttTsdr+dZDtVwYwsSiM0e+ZQSo9WGg9Ks8E4vFi8MkkUbpJnyMrnvMosxOWTYqLAC+ouNNjRnDuIVJZrZRmYk2CjzYnprQeWTSA1VixBjdZENnRgynoym49R5V6d9FTFGWSaGLuRlEblQHJOU3DLYhdbakm45a1532i7Pz4QK0tsrkqCCCQw1s1uo1BFwdelqAVxrCRPaaBUUOPHF3qr3Ug3CiRszRn4lIva5U6rquA8OALHOruPsLmuBzIJAD20uFvbfUXIpyNUi4TM0aklfCZXb7iKC5YeYRSfW1BtuAQZmHiv6VW41jleYldVTwRi/xEbn3NzfoB0pcNxUowAxMxHeYgkRDTMsRPhLMNWbKG8R11W+tDeGDPmf7CnIvmQfGR5X8P8p60F2MhRffqfP8AShPF+ARzXeIiOQ6kH4HPnbVT50bkxEQFjr+VUu+U7XBHyoPP8VC8bFJFKsNwfwI6jzqq8vnW57S4ATw3A+sjBKHmRuyeh5efvXnjUE5nqGSc1FXKBFjXKVKg5RDh8FlMp5Gy+ttT7UPo9Fhz3MZ2UgkHzzEH8qCDCYizAkX1vr+tHf8AxGeTQsSNwANLW5j5/O1Z/EgLz96McIbMCLNa29tgdPzK0EhxJ+6vypVcGHX+wKVAzBT4PNEuMjMkbDEFfEyhXbEZQ7FSCRkjIt6VnuOxQCRjh7iJiWVSSSgzMoUsd9ADfzqLirG0X/tD5szOf91Ug1xrQOSpjIQCATYnUcjaqymrM4sPf9KB+HbcdQfmNf0p0b1XR7VI4/qKCysgqVHHWqAqRKAkj1s/2e9nFxLtLMLwxkC2wkkOuUn7oGpHmPOsAhr2r9muUcOgFwDJJPI38sjIvpcJp/CaDWSwhQAoACjQAAADkABtQ7HcLimkjeS5CEnLyJOXfy8A0on3ylGkJ8NwB1sBz6HnY+VVMVIEQvsLfj0oKvEsKrteGJDItiWa2RPDZcw3Y2sQu2xtrrmuH/s+wyStNLaV2sTn1XNclny7Ekkb3286i7IcUd+IYzMdCE0sLaIgW7b6WYe9aZMMkhXEGMpKuZd+VytjbQjn8qCxC4S9t9fQE7kih2CBmmdszlL5MpPg8HxMo53J3PSucaw7soRcwVj4mVrFSpDLfqpsQbHpproUiZYoHfQAD/k0DOI8I77NAXsrICosCFObw2H8rf5zU3E+BCThzwPeSSOHwnUnvI1zJYnXcWtfa451luymLkmaZHZjaxGp0U6gL0Fw3zFPl4hiMMWaCU5lYMVPiDgZSwINwNrXG3UUHnOAhM0scS/4jKt+gJ1PsLn2on2pjaPCyzAWbGTDDYcag/RorMzqOjssAH7t+TU2LjGG7+SWPDOsgZioE5yBnLZtChYaMdARytan/tGx64nExstjHFFExVfhV3SNSqnyJjH8nlQTdo+JDucNBh3DFIooEYbCTIBK/nlA36iuiQIqQxmwRQLn8z1O/wA6D4GHxl+UKrGnqyhnb1NwPamwI00vdg2zZczfdUZix/L50Bea7rfkNN9T5mh8xyC4b1HWjb4ZRHljACJuebN1PWg88y9OXOgkwePubjn+Fqx/aDCd1MwHwnxr6Ny9jce1acYZVXvFbQna360L7WpdYn/iU/gR+RoMwa5SNcoEaVKiuG4E5AaV1hU7B/jI6iMa28zYUAmt72bVJeHLHI2qYia2gBRfoxca8wZMtBE4ThV+KWSQ9FVUHzJP5U+SWFRkVXC3vbvGte1rkKACbUFTEYV2YBFFuVyB73vR/hnBMdlujYf0E8Ob/Kza+9Au9j5Ig9r/AJ3qF5x0HyFBpm4NjrnxH/60P4gV2st3vl+ArtA3iERuOdo4x7hALCqiRG3SvU5eH2QXj0yjW2lrW3oTPw2I/YHyoMVDw+Rr5UZgBe4BtTcYttPO3yArVTcPA+BmQ/usR+HOgeJ4VJe+YMeuxoBaGpAdPSnvg2XcVCpoHBqkVqgFPU0FlXr2LshBkwGFdWZXaOVe8RQ2QPPMUJBO6kvuLa+VeMBq9B7Odojh8BGkSBnMxLswIypnzGNTYg3BNhe/iJoNnxFIxEBnlEGHzM2Rrs7EMJO/bW7sWLE8t7i1x3jPE4+5QRuXUBbEtmY5vELnrVPtKjSphhhpGjVZVlmJbuzJFrnfPsSoU+G+gYeVO4thooY4YkUqC7soAJAVDlVQTfroPKgi4ZhYnR4wV7ywWcBdbMAGF9i/nrYqBVnjXaxMKkRkjJaQB2QMuZMwzEG++pt8/cukceFw5lkCrlXMerMFzkDmzHpzrwzj3FHxEplcAFrAAbADl/fWg9nXiwlC5ftAEX0NjqCRy05GqvbXHtFh44hpnuWPktrD3J/CsN2D4gFcLK7ICwtKxLRrt4GBPhvawOm/kK5207XLPjBGjXw6DuzYalsxBdTa/wB0ig1XYvErad86qXyIov4rLcsQN7aim8UxKCQgMNDsSSSdQMwH6kAXrE8OkMGJYEhwdBn0HI2uBprblatSkEdyzxOhJLZ7F0J1Nwyg9edqDCcewphxBIJCyeIeo3H99a0PB3QYXHPIpYlIEj0uA5djmPSxCG9Xe03ChNECu62bYjY2Da8jqKowFVwDsSMz4na+phhiVsxHTO1vegpwP9VJc2Bky+gREQ/iD8qGyq8bWjcFpRkFm1uSNSOQFWMLcKAdftG+2Zjmb8SafwpR9KDHxZEZvckL+RNAVaIxxkgtnk2uTcIDpflc2vVPDwlj4vKjE8hYFr78v+aEmUXt5frQT4+VQoRfK9AeNS5sPH5sDrvqjVexLi2lCuNTAxqB98/JVt+tABNICkas8PU5wQLkaj1uAPxIoD3DeG9xF9IcAyHwxgi4VhqzHqRp6E9RQqTF3JZiWYm5PM+prWdqowgiwy65UAY9eZv6m7H+Ks9JglXQjWgHnFnkKibMd6vvCKpyCg6q+dNc1yo3egfmpVDSoPX52PXSqEq1gx2ixI/xifUKf0qRe1GI5lT6r/Sg1sq1SlW5t1oGO1EnNFPzFcPaG+8fyP8AxQGsVhI8urhGHLe/nodKzs0A15+YqR+LofskfKq30ldaCmDT1plSKaB4r0rsDiwyQQ90Tm7wBcq5JSpYlrtobKEBtqNSDyPmQNfQXZHBYc8NwQfuyEjWQEXzLI5LtZk1U3Ygi/rQNZlIIZUVY7S2faN8wW6vppY9PtHzqnxxWkxsMcT5Ugy5hb7Tt4vEb6XdRa29qOYmaMygqGFgSwZSAyqCSB6+HfrWXCYkJiDHCxkmIZJAMxB7vMSLC6uTcA6WsOt6AZ+0fGM8owriNu6C2cIQzMyhiRcnKNrjXW+vKsS2AJF7aCjHE8NaZi03fHKmZvELvkXOtj0a4vzteuyYgKptYeGx8haxsOZ5UGUmxJUOoewYWIHOxuKi4MW70ZQC5By3tYH7xv03puPYs1lUgHYa6VDGCpFjZr6W5UGvxULZvC4d01crrrYEgW9a0vDY1lVX7nxMLZonKsxHVWFm9Aah7H4fLJEz2LBkLEDcgi5PWi3ZecOkh+kdzhwzMNIwC7XEiHOLEKVOltiD6hn+II6MTmkzjQhgGNh9lgGIX0sPShEuFthkexvMxiuR4TaTxBT9qyb+tbnjbKuEeRFKofq4/CiGTMQCxAANj4rKAuguRa18dicZI8WChZbLE2LKN98eEj5MWHyoKeJXS9Q8DlAmYnbLb/UKkJNiKGwBg7W3y3+RFBpsdilQeE6ka0IimLbipcBOj6H4qtvGBQDMVLyrOMxJN+povxKXKbmgimgbRzgCFUzj/EmihGl72PeHXl4hDQM0ajjKjCC3xFphodSZMgAPMfVDbYk0Guxqr302Ic+BWKxj77AeEDyAF/xrMTuWJJ50X7QYu7ZBoq3UctAddPUXJ6gD7NAXkoOsaGzya1akah0u9A4yVGaQpGg5SrtKge6jlTeVWI7ZvZv9pqvyoOUqQpUHRThTKdQdFODVHenA0E+EhaR1jQXZ2VFHVmIAHzNfSWA4IuGwkMDSZe6QAsGZQW3Y5hbdiTXz92OaQY3DmIgOJAQSAbWBJNjvpevZONTz/EMTKptuMn5ZbUBnh+HXxnvO9F1UEEG1ySw0AA+Ff73tdo+KHDxDKud7eFfFrbyUE/KhXYLFPIJhK+coyG5VRoQ2+UC+1WuLcUjjzYiX4VIVQFzHxHKLL1OtB5PxXGWnkd0AYuSygEAE3uLHUb86AYiOSVtQRe9tbD50Q424xEsrJmAkZn1sWAZiRmI0vtVdAyDxupyjrY2/u9BSbhzmRUzDUgFiTlF9Lk9KgxuCEWIESushDL4lN1JvsCNxXcRjM4BvlAN7W3PK+u1TphVjxUZcjIxR7gg/Gt+XmaD0Lg7AEHoQfxoFwvtL9GxckeVjCJWUqMpYZHYE2YENfnpyFqLcNkBbw7Xv7CsfhsKz44x/baeRR/EWe3teg3XbziplaONSpj1lFiGJzEqpYqLC/ja374J1oVxaJV+gxqQQMNNIbcmlxBzD1B09qgx2GVQ3d6WByE9FGhN+tr+5oDwOdmluxJsjAAnQZ5C5AHIXubdSaCeQAEj1puCjIkLlfDlIPvb+gq1jWTNc6Go/pl/CNjv6UAzFLZsy6Vfhx+ZbHeqaNclW3Fxfraq7JY3BoKXFZbv6VTFPxDXYmoxQKvRMVhljnQyKcvD8Lh4hyviXXvWsdrq8jm/IqN9jg+HYfvJo4z9t0T/MwH60f7R8Y73E4g5rxnETSIBsczkBvM5Qov0AoK2IkLsWO5+QHIDyFVmqGXHDkKqviGNBadqpzb1zvD1ppNAhSNcpUCpUqVBaKFXYMLMM4I6EAgj51W5Vpe30Cx4+cpqkrd+h/cxCiUfLOR7VmqDorld5VygVdvXKVAq7XCK5QbD9lmGz44H7kbt+S/8A6r0XtFPY5RWL/ZIuV55bbKqg+pJP+0Uc4xisz0Gx7JwZcGCPimd3brYHuwL/AMhP8xqh22wBeIETrGsIZ2VrfWNbwKOmvMnnttRns5EDg4SNbrceZLE/nUXE8BFKhjezEBmINyMxFlLjp09Ljag8kSEsSkehN9edgNh51Vw3BFuST52Otz713i3CsRBdJBldbE76+anmDY61XidzYai+l78qCXF4GBFZnzObHKAba2FieQ1vQ3jfEZJJ1mkVVFkKKgsFRAAgA9F3/wCqlx7EvKp5ZQvpl0/StJwDEYbFQx4ebBhzBGSZc5XLFlJYta2z5R/OaAhwuYZO82DICPfpQONwmOlkN792BHobd5LGsZueRCGZh5qKscONog2uW5RATe2Um1/IfnQftPxK31SHUgFz7WAHmQfkfOgi47xzORFGfACMxH2iOQ/d/OncGUrmfrlHyuf1FZ1Ab6Vo+HHNCbaWYg/IH9aC1iYy5vVjhmEPisAbDY7G/L8DTcM3g9KlwU4FyxsCbDz86CKXExWIKZXHI9eoI3rLYuUg1qOJ4QN4huOYrLcRBDWNBUrtcpUEkDWN+mo9eVSRxFvIVEAbf3yq1hhYb0DThR1rncCpi46ilfS4BIva4Btc7C/Wgh7pRUMoq8uClO0Uh/kb+lVcRhnX4kYeooK9KlSoFSpUqC/xHGSSlO8N+7jWJdALIl8oPWw0vVGr7YVj4tOvxLt6XofQOvpXKQpUHKVdpGgRrlKuig9Y7EIuH4Z3rCzTMza8wPCPay396zvGuKZEZgfG3hXyvufYfjatpxbBBcIsd8vdxqAPMAaH5V49xCZmc5tLEi3Sx2oPd+wOOkXg+HKoXl+sjhW29pXsx5BQLXJ6VLwsSRRStIDJJctJlO528OmoC615NwHtniYZMOym6wR9yY7kK8ZYs19wDqNeqg+VemcP7QYSZBHGXC4kyF2AYNBI+hVhqAbsLW8JzCgl7Y8PbFQRPAmaVcoOwLRsrMLEmx5fOsLOiRB9Q5HgBymwOlzY7gHT/uvS+MYhYUVEZAPALyM4IWNGZWAGrtmVBYa68qwnb7FYZ8hixJa4bvQyFBcuHDC4F822pOirQZbCYBXLPLIxY5mb94ryFqPxNCML3OHgJnxJaNmIuvdK4ey/da2Qa+dAnljAP16WN7BQWOo/d8+ppnDu1pwyyCGMNKxsssmvdpYaKnMk66m21waDXng6RR9y8iCeR0ZAWUXawXuwL3LEnod9SDYV5rxjDSLiJY3BDiRgR6HT2tb2qKbFySSGR3ZnJvmJ1vyseX6VexXEHnxJlnN3e1yBvZQo09APlQOw2CAQnnzPz/Cr/Z1wyyqbCwQj/UD+lDcROTcAEC1P4RNlc/vKR+R/SgLopJCjckAe5tRuTDKgswVktYE2uKHcEw7M5a1so015nS+3S9W8Vw123ufegG8RkSMeBr+W9vSsnjps7k+1H+MCOEWuGfkBy9azJNBylSpUF/BYcOpubAb9d9BRrAxxgCyL76n5mgGCa2b2q7Fircvx/wCKA44zWW4AvfQW18yNbf0pka7Hzzcr313PPeqceMB0IHXrsP7PtTUxnhA52HOg0OGxXW1VeIzA30oZFOx02qDFSHr+FANxhF6Y0qmILrmDaaLbKQb3O97+1RYhtaioFSpUqDXca4rg8XF3v0c4fGAjP3OX6PMCReQxk5o330W4vr6ZGtX2bnaWDFYOKFCZB34OUNIBEQViRjqNTe9+R01rnEOxTx9yO9TNKiEiS0YWZwpEAa5u3iHiOVRpci9Bla7WjxnY+VMQcP3kYbNkQuwTO5NlQDXKx31IABUkjMtzPE+yeFEk2HQTRyRBirvLG8cmWJ5LMqoGS4im11AyAH4gQGDFdNHMT2WmjF2eH4e8sJRfuwcrPl3ADaEHxXBFtDazL2NmsgV0LkAsjMqlcxiVLNmIbM0qgW12NgNgzFajsBwgTTmVx9Vhx3r9Cw/9NfmL+ims/i8G8eTOLF1Dgc8pJAuOV7X9CDzrUdj8blweOQDxMsdrC5NxILflQFOO9o2kwpkDDxuygfuq1r/KvPZGuSTuSTRyVozhIUu3eBnzLlIGXMbHMRY63Gn3aFYmIKLczQKB+X92qZMdIlwkjqOYVmUHbcA67D5VSQ2NPmOtBPLi5CATLITbKLuxsOg12riyqOVzVa9SRDnQSmY722qtepX87VCTQdvrRvDcPieB5jMBKjKqxWOaRWt4w2wtc6eVAqtYM+IEm1iNOtqC5h8OCAWfTW9ztUWGkCyIP3gD7m361AYlNzmte9HeDcM7zGRQAkDNqeYRRmbbnlBHvQaDh0wUMf79qF8V4vI11RSB1vatHxPgndsxgYshF8m7geX3x+PrWF4xxHeNbjk3UciLcjQBpmJJJN6ZXTXKBUqVKgJYGD6p3LAC4AG7ErqbD3Gpqv3m+nzq9hcKBh8+YHMzeEHVctr5hy5UMYm9A9ZBsasLN0qi1dRqC6uJa9712XEm3wiqhpjUHGbyrlcpUCpUqVBqeFr3aFQAO8QLJdVJKkXIDEXXfla9h0FVv/NmJAVbxsEy5M0MTZWQBUk1XVwABc72F72pUqDp7ZYstmZ43YOZFLwxMUkJzBkuuljew219LW8f25ld+8WCGOS+YuO8Ykm9xZ2K5SGkFrbSMNL0qVAJxvaCaVizZBmjaIhUUDI0hkbTqXJN99afjO0uJkGV3FsqroqqbL3NrEC4P1EWvkeppUqCpxzibYmeSd9DI17aWVdlQWA0VQB7U/g3E+4LXQMHAU/eWxvmQ8jSpUF1+LwnwvGCviIZVVZATtmPP0vags8mY3+VdpUEVdpUqBA1YUaClSoGlahalSoOVYRdPxrlKgcm1eofs84OAkuNYfEvdx+mhkb3Nh7HrSpUFqTH/W5l+zr8q8q4oxLXb47nN5kkk/jSpUFGlSpUCqbD4Znvbl6/pSpUBfhsX1eUNdibkWNlB057+dC8UtmNcpUDUUMLXsfPY/0NRMpGhpUqDqmu5qVKgZSpUqBUqVKg/9k=",
+            links:[
+                {
+                    type: SOCIAL_NETWORKS.TWITTER,
+                    url: "#",
+                },
+                {
+                    type: SOCIAL_NETWORKS.GOOGLE,
+                    url: "#",
+                },
+                {
+                    type: SOCIAL_NETWORKS.FACEBOOK,
+                    url: "#",
+                },
+                {
+                    type: SOCIAL_NETWORKS.INSTAGRAM,
+                    url: "#",
+                },
+                {
+                    type: SOCIAL_NETWORKS.SKYPE,
                     url: "#",
                 },
             ],
         },
+
     ];
 
 
@@ -220,59 +281,72 @@
 
     function cardGenerate(user) {
 
-
-
-            const card = document.createElement("div");  //!!!!!!!!!!
+        const card = document.createElement("div");  //!!!!!!!!!!
         card.classList.add("card");
+        card.setAttribute("id", `${user.id}`);
 
         const userImageContainer = document.createElement("div");
         userImageContainer.classList.add("userImageContainer");
 
         const userFoto = document.createElement("img");
-        userFoto.classList.add("imageInContainer")
+        userFoto.classList.add("imageInContainer");
         userFoto.setAttribute("src", user.imageSrc);
         userFoto.setAttribute("alt", "user avatar");
 
-            userImageContainer.append(userFoto);
+        userImageContainer.append(userFoto);
 
 
         const userFullName = document.createElement("div");
         userFullName.classList.add("userName");
-            userFullName.innerText = `${user.name} ${user.surname}`;
+        userFullName.innerText = `${user.name} ${user.surname}`;
 
 
         const description = document.createElement("div");
         description.classList.add("description");
-            description.innerText = `${user.description}`;
+        description.innerText = `${user.description}`;
 
         const links = document.createElement("div");
-            links.classList.add("links");
+        links.classList.add("links");
 
         user.links.forEach( function(item)  {
 
-            const linkItem = document.createElement("div");
-            linkItem.classList.add("linkItem");
+                const linkItem = document.createElement("div");
+                linkItem.classList.add("linkItem");
 
-            const link = document.createElement("a");
-            link.setAttribute("href", `${item.url}`);
+                const link = document.createElement("a");
+                link.setAttribute("href", `${item.url}`);
 
-            const img = document.createElement("img");
-            img.classList.add("imageInContainer");
-            img.setAttribute("src", socIcon.get(item.type));
+                const img = document.createElement("img");
+                img.classList.add("imageInContainer");
+                img.setAttribute("src", socialIcon.get(item.type));
 
-            link.append(img);
+                link.append(img);
 
-            linkItem.append(link);
+                linkItem.append(link);
 
-            links.append(linkItem);
+                links.append(linkItem);
 
-        }
+            }
         );
 
-        card.append(userFoto);
+
+        const deleteButton = document.createElement("div");
+        deleteButton.classList.add("deleteButton");
+        deleteButton.innerText = "DELETE";
+        deleteButton.addEventListener("click", (event) =>{
+                event.stopPropagation();
+
+                const itemToDelete = document.getElementById(user.id);
+                console.log(user);
+                itemToDelete.remove();
+            }
+        );
+
+        card.append(userImageContainer);
         card.append(userFullName);
         card.append(description);
         card.append(links);
+        card.append(deleteButton);
 
         return card;
     }
